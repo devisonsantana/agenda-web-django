@@ -10,5 +10,8 @@ class Event(models.Model):
     created_at = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    def get_event_date(self):
+        return self.event_date.strftime('%d/%m/%Y %H:%M')
+
     class Meta:
         db_table = 'event'
