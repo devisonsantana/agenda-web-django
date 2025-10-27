@@ -1,0 +1,22 @@
+<div class="row row-cols-1 row-cols-md-2 g-3 mb-3" style="width: 50vw;">
+    {% for event in data %}
+    <div class="col">
+        <div class="card shadow-sm h-100">
+            <div class="card-header">@{{ event.user }}</div>
+            <div class="card-body">
+                <h5 class="card-title">{{ event.title }}</h5>
+                <p class="card-text text-muted">
+                    {{ event.description|default:"(sem descrição)" }}
+                </p>
+            </div>
+            <div class="card-footer">
+                <p class="text-end mb-0">
+                    <small class="text-secondary">
+                        📆 {{ event.event_date|date:"d/m/Y H:i" }}
+                    </small>
+                </p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>

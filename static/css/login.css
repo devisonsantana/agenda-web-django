@@ -1,0 +1,18 @@
+.card {
+    border: none;
+    border-radius: 1rem;
+}
+
+.btn {
+    border-radius: 0.5rem;
+}
+
+body {
+    background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+    color: #f8f9fa;
+}
+
+.card {
+    background: #ffffff;
+    color: #333;
+}

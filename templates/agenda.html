@@ -1,0 +1,20 @@
+{% extends "model-page.html" %}
+{% load static %}
+{% block title %}<title>Agenda</title>{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/agenda.css' %}">{% endblock %}
+
+{% block content %}
+<main>
+    {% if data %}
+    <div class="content">
+        {% include "model-event.html" %}
+        {% include "model-crud.html" %}
+    </div>
+    {% else %}
+    <div class="alert alert-warning text-center">
+        Nenhum evento cadastrado ainda 😔
+    </div>
+    {% endif %}
+</main>
+{% endblock %}

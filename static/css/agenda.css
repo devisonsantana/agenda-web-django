@@ -1,0 +1,8 @@
+main {
+    margin: 0 2rem;
+}
+.content {
+    display: grid;
+    grid-template-columns: auto auto;
+    row-gap: 1rem;
+}

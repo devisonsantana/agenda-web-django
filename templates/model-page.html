@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
-    {% include "model-head.html" %}
+    {% include "model-meta.html" %}
+    {% block css %}{% endblock %}
     {% block title %}{% endblock %}
 </head>
 
-<body>
+<body class="d-flex flex-column min-vh-100 bg-dark">
+    {% include "model-navbar.html" %}
     {% block content %}{% endblock %}
     {% include "model-footer.html" %}
 </body>
