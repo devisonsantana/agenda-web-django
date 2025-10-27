@@ -5,6 +5,6 @@ from events.models import Event
 
 class AdminEvent(admin.ModelAdmin):
     list_display = ('title', 'description', 'event_date', 'created_at', 'user')
-    list_filter = ('title', 'event_date', 'created_at')
+    list_filter = ('title', 'event_date', 'created_at', 'user')
 
 admin.site.register(Event, AdminEvent)

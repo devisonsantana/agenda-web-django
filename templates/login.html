@@ -1,0 +1,25 @@
+{% extends "model-page.html" %}
+
+{% block title %}<title>Login</title>{% endblock %}
+
+{% block content %}
+<form action="submit" method="post">
+    {% csrf_token %}
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="floatingInput" placeholder="Username" name="username">
+        <label for="floatingInput">Username</label>
+    </div>
+    <div class="form-floating mb-3">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password" name="password">
+        <label for="floatingPassword">Password</label>
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary mb-3">Confirm identity</button>
+    </div>
+</form>
+{% for message in messages %}
+<pre>
+    {{ message }}
+</pre>
+{% endfor %}
+{% endblock %}

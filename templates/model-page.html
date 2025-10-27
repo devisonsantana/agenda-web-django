@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-{% include "model-head.html" %}
+
+<head>
+    {% include "model-head.html" %}
+    {% block title %}{% endblock %}
+</head>
 
 <body>
-    {% block content %}
-    {% endblock %}
+    {% block content %}{% endblock %}
     {% include "model-footer.html" %}
 </body>
 
