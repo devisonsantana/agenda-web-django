@@ -1,12 +1,22 @@
 {
-    "builds": [{
-        "src": "agenda/wsgi.py",
-        "use": "@vercel/python"
-    }],
+    "builds": [
+        {
+            "src": "agenda/wsgi.py",
+            "use": "@vercel/python"
+        },
+        {
+            "src": "build_files.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "staticfiles"
+            }
+        }
+    ],
     "routes": [
         {
             "src": "/(.*)",
             "dest": "agenda/wsgi.py"
         }
-    ]
+    ],
+    "outputDirectory": "staticfiles"
 }
