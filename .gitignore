@@ -23,5 +23,5 @@ Thumbs.db
 .tox/
 .eggs/
 
-# Secret Key
-env
+# Environment variables
+*.env
