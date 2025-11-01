@@ -21,8 +21,10 @@ from events import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('agenda/', views.event_list, name='agenda'),
+    path('agenda/new/', views.event_add, name='new'),
+    path('agenda/new/submit', views.submit_event),
     path('login/', views.login_user, name='login'),
-    path('login/submit', views.submit_user, name='submit'),
+    path('login/submit', views.submit_user),
     path('logout/', views.logout_user, name='logout'),
     path('', views.index, name='home'),
 ]

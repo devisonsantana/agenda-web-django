@@ -1,3 +1,25 @@
+{% extends "model-page.html" %}
+{% block content %}
+
+<form method="POST" action="submit" style="color: white;">
+    {% csrf_token %}
+    <div class="mb-3 w-50">
+        <label for="title" class="form-label">Título</label>
+        <input type="text" name="title" id="title" class="form-control" required autofocus>
+    </div>
+    <div class="mb-3 w-50">
+        <label for="event-date" class="form-label">Data do evento</label>
+        <input type="datetime-local" name="event-date" id="event-date" class="form-control" required autofocus>
+    </div>
+    <div class="mb-3 w-50">
+        <label for="description" class="form-label">Descrição</label>
+        <textarea name="description" id="description" class="form-control"></textarea>
+    </div>
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Salvar</button>
+        <a href="{% url 'agenda' %}" class="btn btn-outline-secondary">Cancelar</a>
+    </div>
+<!-- </form>
 <div>
     <div class="card shadow-sm h-45" style="width: 34vw;">
         <div class="card-header">@user</div>
@@ -21,4 +43,5 @@
             </p>
         </div>
     </div>
-</div>
+</div> -->
+{% endblock %}

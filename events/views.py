@@ -13,6 +13,21 @@ def index(request):
 # TODO: create new user
 
 # TODO: create new event
+
+@login_required(login_url='/login')
+def event_add(request):
+    return render(request, 'event.html')
+
+@login_required(login_url='/login')
+def submit_event(request:HttpRequest):
+    if request.POST:
+        title = request.POST.get('title')
+        event_date = request.POST.get('event-date')
+        description = request.POST.get('description')
+        user = request.user
+        Event.objects.create(title=title, description=description, event_date=event_date, user=user)
+    return redirect('/agenda')
+
 # TODO: update a event
 # TODO: delete a event
 
@@ -37,6 +52,6 @@ def submit_user(request:HttpRequest):
             messages.error(request, 'Provided user or password invalid')
     return redirect('/login')
 
-def  logout_user(request):
+def logout_user(request):
     logout(request)
     return redirect('/')
