@@ -12,8 +12,6 @@ def index(request):
 
 # TODO: create new user
 
-# TODO: create new event
-
 @login_required(login_url='/login')
 def event_add(request):
     return render(request, 'event.html')
@@ -30,6 +28,14 @@ def submit_event(request:HttpRequest):
 
 # TODO: update a event
 # TODO: delete a event
+
+@login_required(login_url='/login')
+def event_delete(request:HttpRequest, id):
+    event = Event.objects.get(id=id)
+    if event.user == request.user:
+        event.delete()
+    return redirect('/agenda')
+
 
 @login_required(login_url='/login')
 def event_list(request):

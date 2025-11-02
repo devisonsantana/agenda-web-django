@@ -23,6 +23,7 @@ urlpatterns = [
     path('agenda/', views.event_list, name='agenda'),
     path('agenda/new/', views.event_add, name='new'),
     path('agenda/new/submit', views.submit_event),
+    path('agenda/delete/<int:id>', views.event_delete),
     path('login/', views.login_user, name='login'),
     path('login/submit', views.submit_user),
     path('logout/', views.logout_user, name='logout'),

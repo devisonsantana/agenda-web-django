@@ -2,7 +2,8 @@
     {% for event in data %}
     <div class="col">
         <div class="card shadow-sm h-100">
-            <div class="card-header">@{{ event.user }}</div>
+            <div class="card-header">@{{ event.id }}</div>
+            <div class="card-header"><a href="delete/{{event.id}}">Deletar</a></div>
             <div class="card-body">
                 <h5 class="card-title">{{ event.title }}</h5>
                 <p class="card-text text-muted">
