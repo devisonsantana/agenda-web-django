@@ -13,20 +13,34 @@ def index(request):
 # TODO: create new user
 
 @login_required(login_url='/login')
-def event_add(request):
-    return render(request, 'event.html')
+def event_create(request):
+    return render(request, 'create-event.html')
 
 @login_required(login_url='/login')
 def submit_event(request:HttpRequest):
     if request.POST:
+        id = request.POST.get('id')
         title = request.POST.get('title')
         event_date = request.POST.get('event-date')
         description = request.POST.get('description')
         user = request.user
-        Event.objects.create(title=title, description=description, event_date=event_date, user=user)
+        if id:
+            Event.objects.filter(id=id, user=user).update(title=title, description=description, event_date=event_date)
+        else:
+            Event.objects.create(title=title, description=description, event_date=event_date, user=user)
     return redirect('/agenda')
 
 # TODO: update a event
+
+@login_required(login_url='/login')
+def event_update(request:HttpRequest):
+    id = request.GET.get('id')
+    if id:
+        user = request.user
+        data = {}
+        data['event'] = Event.objects.filter(user=user).get(id=id)
+    return render(request, 'edit-event.html', data)
+
 # TODO: delete a event
 
 @login_required(login_url='/login')
