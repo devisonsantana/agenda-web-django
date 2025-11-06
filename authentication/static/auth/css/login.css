@@ -1,4 +1,4 @@
-body {
+body.bg-light {
     background: linear-gradient(135deg, #4b6cb7, #182848);
     min-height: 100vh;
     display: flex;

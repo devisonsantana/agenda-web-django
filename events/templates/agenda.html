@@ -6,33 +6,33 @@
 <title>Agenda</title>
 {% endblock %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'events/css/style.css' %}">
+{% endblock %}
+
 {% block js %}
+<script src="{% static 'events/js/theme.js' %}" defer></script>
 <script src="{% static 'events/js/script.js' %}" defer></script>
 {% endblock %}
 
-
 {% block content %}
-
-<div class="d-flex justify-content-between align-items-center mb-4">
-    <h3>📅 Minha Agenda</h3>
-    <a href="{% url 'new' %}" class="btn btn-success">
-        <i class="bi bi-plus-circle"></i> Novo Evento
-    </a>
+<div class="text-center mb-4">
+    <h2 class="fw-bold"><i class="bi bi-calendar2-event"></i> Meus Eventos</h2>
 </div>
-
-<!-- Grid de cards -->
 <div class="row g-4">
     {% for event in events %}
     <div class="col-md-6 col-lg-4">
-        <div class="card shadow h-100">
+        <div class="card event-card shadow-sm h-100 border-0">
             <div class="card-body d-flex flex-column">
-                <h5 class="card-title">{{ event.title }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">
+                <h5 class="card-title mb-2">
+                    <i class="bi bi-bookmark-star"></i> {{ event.title }}
+                </h5>
+                <h6 class="card-subtitle mb-3 small">
                     <i class="bi bi-clock"></i> {{ event.event_date|date:"d/m/Y H:i" }}
                 </h6>
-                <p class="card-text">{{ event.description|default:"(Sem descrição)" }}</p>
+                <p class="card-text flex-grow-1">{{ event.description|default:"(Sem descrição)"|linebreaksbr }}</p>
 
-                <div class="mt-auto d-flex justify-content-between">
+                <div class="mt-3 d-flex justify-content-between">
                     <a href="{% url 'edit' %}?id={{ event.id }}" class="btn btn-outline-primary btn-sm">
                         <i class="bi bi-pencil"></i> Editar
                     </a>
@@ -45,10 +45,11 @@
         </div>
     </div>
     {% empty %}
-    <div class="alert alert-warning text-center">
-        Nenhum evento cadastrado ainda 😔
+    <div class="col-12 text-center">
+        <div class="alert alert-warning shadow-sm py-3">
+            <i class="bi bi-emoji-frown"></i> Nenhum evento cadastrado ainda
+        </div>
     </div>
     {% endfor %}
 </div>
-
 {% endblock %}

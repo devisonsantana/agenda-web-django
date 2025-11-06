@@ -10,7 +10,14 @@
 {% endif %}
 {% endblock %}
 
+{% block css %}
+<link rel="stylesheet" href="{% static 'events/css/style.css' %}">
+{% endblock %}
+
 {% block js %}
+<script src="{% static 'events/js/theme.js' %}" defer></script>
+<script src="{% static 'events/js/script.js' %}" defer></script>
+<!-- Form validator -->
 <script src="{% static 'events/js/validator.js' %}" defer></script>
 {% endblock %}
 
@@ -18,7 +25,7 @@
 <div class="d-flex justify-content-center align-items-center vh-100">
     <div class="card shadow p-4" style="width: 100%; max-width: 500px;">
         <h4 class="text-center mb-3">
-            {% if event %}✏️ Editar Evento{% else %}📅 Novo Evento{% endif %}
+            {% if event %}Editar Evento{% else %}Novo Evento{% endif %}
         </h4>
                 
         <form id="event-form" method="post" novalidate>

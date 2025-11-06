@@ -1,0 +1,17 @@
+:root {
+    /* light mode */
+    --bg-body-light-mode: linear-gradient(135deg, #4b6cb7, #182848);
+    --bg-body-dark-mode: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --bg-card-light-mode: rgba(255, 255, 255, 0.85);
+    /* color */
+    /* transition */
+
+}
+
+#theme-toggle {
+    transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+    transform: rotate(15deg);
+}
