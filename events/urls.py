@@ -4,7 +4,7 @@ from . import views
 urlpatterns = [
     path(route='', view=views.get_all_events, name='agenda'),
     path(route='new/', view=views.add_event, name='new'),
-    path(route='edit/<int:id>/', view=views.edit_event, name='edit'),
+    path(route='edit', view=views.edit_event, name='edit'),
     path(route='delete/<int:id>', view=views.delete_event, name='delete')
 ]
 

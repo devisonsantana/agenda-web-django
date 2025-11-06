@@ -21,7 +21,7 @@ def login_user(request):
             next_url = request.GET.get('next', 'agenda')
             return redirect(to=next_url)
         else:
-            messages.error(request, 'Provided user or password invalid')
+            messages.error(request, 'Usuário ou senha inválidos.')
             return redirect(to='login')
     return render(request=request, template_name='login.html')
 

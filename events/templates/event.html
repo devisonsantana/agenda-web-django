@@ -1,0 +1,60 @@
+{% extends 'model-page.html' %}
+
+{% load static %}
+
+{% block title %}
+{% if event %}
+<title>Editar Evento</title>
+{% else %}
+<title>Novo Evento</title>
+{% endif %}
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'events/js/validator.js' %}" defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow p-4" style="width: 100%; max-width: 500px;">
+        <h4 class="text-center mb-3">
+            {% if event %}✏️ Editar Evento{% else %}📅 Novo Evento{% endif %}
+        </h4>
+                
+        <form id="event-form" method="post" novalidate>
+            {% csrf_token %}
+            
+            <!-- Título -->
+            <div class="mb-3">
+                <label for="title" class="form-label">Título <span class="text-danger">*</span></label>
+                <input type="text" id="title" name="title" class="form-control" placeholder="Digite o título do evento"
+                    value="{{ event.title }}" required>
+                <div class="invalid-feedback">O título é obrigatório.</div>
+            </div>
+            
+            <!-- Data -->
+            <div class="mb-3">
+                <label for="event-date" class="form-label">Data e Hora <span class="text-danger">*</span></label>
+                <input type="datetime-local" id="event-date" name="event-date" class="form-control"
+                    value="{{ event.get_event_date_input }}" required>
+                <div class="invalid-feedback">A data e hora são obrigatórias.</div>
+            </div>
+            
+            <!-- Descrição -->
+            <div class="mb-3">
+                <label for="description" class="form-label">Descrição</label>
+                <textarea id="description" name="description" rows="3" class="form-control"
+                    placeholder="Opcional">{{ event.description }}</textarea>
+            </div>
+
+            <!-- Botões -->
+            <div class="d-grid gap-2 mt-3">
+                <button type="submit" class="btn btn-primary">
+                    {% if event %}Atualizar Evento{% else %}Criar Evento{% endif %}
+                </button>
+                <a href="{% url 'agenda' %}" class="btn btn-outline-secondary">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

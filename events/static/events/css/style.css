@@ -5,3 +5,50 @@
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+/* 🌞 Tema claro */
+body.bg-light {
+    background: linear-gradient(to right, #e0eafc, #cfdef3);
+    transition: background 0.3s;
+    color: #333;
+}
+
+/* 🌙 Tema escuro */
+body.dark {
+    background: linear-gradient(to right, #1f1c2c, #928dab);
+    color: #f0f0f0;
+}
+
+/* Card translúcido padrão */
+.card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Card modo escuro */
+body.dark .card {
+    background: rgba(0, 0, 0, 0.6);
+    color: #f0f0f0;
+}
+
+/* Botões padrão */
+.btn {
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Botão de alternar tema */
+#theme-toggle {
+    z-index: 1050;
+}
+
+/* Inputs padrão */
+.form-control {
+    border-radius: 8px;
+}
+
+/* Alerts translúcidos */
+.alert {
+    backdrop-filter: blur(5px);
+}
