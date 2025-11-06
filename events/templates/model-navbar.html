@@ -1,26 +1,40 @@
 <nav class="navbar navbar-expand-lg navbar-dark shadow-sm mb-3" style="background-color: #1a1a1a;" data-bs-theme="dark">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/">📅 Agenda Web</a>
-        
+
+        <!-- Botão do collapse -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav align-items-lg-center">
                 <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">Início</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" href="{% url 'home' %}">
+                        <i class="bi bi-house"></i> Início
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if request.resolver_match.url_name == 'agenda' %}active{% endif %}" href="{% url 'agenda' %}">Minha Agenda</a>
+                    <a class="nav-link {% if request.resolver_match.url_name == 'agenda' %}active{% endif %}" href="{% url 'agenda' %}">
+                        <i class="bi bi-calendar-event"></i> Minha Agenda
+                    </a>
                 </li>
 
                 {% if user.is_authenticated %}
+                    <li class="nav-item me-2">
+                        <a href="{% url 'new' %}" class="btn btn-success btn-sm">
+                            <i class="bi bi-plus-circle"></i> Novo
+                        </a>
+                    </li>
                     <li class="nav-item">
-                        <a class="nav-link text-danger" href="/logout/">
+                        <a class="nav-link text-danger" href="{% url 'logout' %}">
                             <i class="bi bi-box-arrow-right"></i> Sair
                         </a>
-                        <a href="{% url 'new' %}">Novo</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="/login/">
+                        <a class="nav-link" href="{% url 'login' %}">
                             <i class="bi bi-box-arrow-in-right"></i> Entrar
                         </a>
                     </li>

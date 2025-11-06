@@ -1,22 +1,31 @@
-<div class="row row-cols-1 row-cols-md-2 g-3 mb-3" style="width: 50vw;">
+<div class="row row-cols-1 row-cols-md-2 g-4">
     {% for event in data %}
     <div class="col">
         <div class="card shadow-sm h-100">
-            <div class="card-header">@{{ event.id }}</div>
-            <div class="card-header"><a href="delete/{{event.id}}">Deletar</a></div>
-            <div class="card-header"><a href="edit/?id={{event.id}}">Editar</a></div>
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <span><strong>#{{ event.id }}</strong></span>
+                <div class="btn-group btn-group-sm">
+                    <a href="?id={{ event.id }}" class="btn btn-outline-primary">
+                        <i class="bi bi-pencil-square"></i> Editar
+                    </a>
+                    <a href="{% url 'delete' event.id %}" class="btn btn-outline-danger"
+                        onclick="return confirm('Tem certeza que deseja excluir este evento?');">
+                        <i class="bi bi-trash"></i> Deletar
+                    </a>
+                </div>
+            </div>
+
             <div class="card-body">
                 <h5 class="card-title">{{ event.title }}</h5>
                 <p class="card-text text-muted">
                     {{ event.description|default:"(sem descrição)" }}
                 </p>
             </div>
-            <div class="card-footer">
-                <p class="text-end mb-0">
-                    <small class="text-secondary">
-                        📆 {{ event.event_date|date:"d/m/Y H:i" }}
-                    </small>
-                </p>
+
+            <div class="card-footer text-end">
+                <small class="text-secondary">
+                    📆 {{ event.event_date|date:"d/m/Y H:i" }}
+                </small>
             </div>
         </div>
     </div>
