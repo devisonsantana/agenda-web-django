@@ -6,7 +6,7 @@ from django.contrib import messages
 
 @login_required(login_url='/login')
 def get_all_events(request: HttpRequest):
-    events = Event.objects.filter(user=request.user)
+    events = Event.objects.filter(user=request.user).order_by('-event_date')
     context = {
         'events': events
     }
