@@ -1,3 +1,4 @@
+/* === FUNDO GLOBAL COM GRADIENTE === */
 body.bg-light {
     background: linear-gradient(135deg, #4b6cb7, #182848);
     min-height: 100vh;
@@ -13,6 +14,7 @@ body.dark-mode {
     color: #e6e6e6;
 }
 
+/* === CONTEÚDO PRINCIPAL === */
 main.card {
     backdrop-filter: blur(12px);
     background-color: rgba(255, 255, 255, 0.85);
@@ -25,6 +27,7 @@ body.dark-mode main.card {
     color: #f5f5f5;
 }
 
+/* === FORMULARIO E BOTÕES === */
 .form-control {
     border-radius: 8px;
     padding: 10px 12px;
@@ -52,6 +55,7 @@ body.dark-mode main.card {
     border-radius: 8px;
 }
 
+/* === MENSAGENS DE ALERTA === */
 #messages-container .alert {
     border-radius: 8px;
     font-size: 0.9rem;
@@ -60,6 +64,7 @@ body.dark-mode main.card {
     gap: 8px;
 }
 
+/* === BOTÃO DE TEMA === */
 #theme-toggle {
     border-radius: 50%;
     width: 36px;
@@ -75,6 +80,7 @@ body.dark-mode main.card {
     background-color: rgba(108, 117, 125, 0.15);
 }
 
+/* === TRANSIÇÃO GLOBAL === */
 * {
     transition: background-color 0.3s, color 0.3s;
 }

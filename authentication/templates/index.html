@@ -1,7 +1,20 @@
-<h1>Bem-vindo!</h1>
-{% if user.is_authenticated %}
-<p>Olá, {{ user.username }}!</p>
-<a href="{% url 'logout' %}">Sair</a>
-{% else %}
-<a href="{% url 'login' %}">Entrar</a>
-{% endif %}
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INICIO</title>
+</head>
+
+<body>
+    <h1>Bem-vindo!</h1>
+    {% if user.is_authenticated %}
+    <p>Olá, {{ user.username }}!</p>
+    <a href="{% url 'logout' %}">Sair</a>
+    {% else %}
+    <a href="{% url 'login' %}">Entrar</a>
+    {% endif %}
+</body>
+
+</html>
