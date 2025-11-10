@@ -1,5 +1,6 @@
-from django.db import models
 from django.contrib.auth.models import User
+from django.utils import timezone
+from django.db import models
 
 # Create your models here.
 
@@ -11,10 +12,12 @@ class Event(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def get_event_date(self):
-        return self.event_date.strftime('%d/%m/%Y %H:%M')
+        local_date = timezone.localtime(self.event_date)
+        return local_date.strftime('%d/%m/%Y %H:%M')
 
     def get_event_date_input(self):
-        return self.event_date.strftime('%Y-%m-%dT%H:%M')
+        local_date = timezone.localtime(self.event_date)
+        return local_date.strftime('%Y-%m-%dT%H:%M')
     
     class Meta:
         db_table = 'event'
