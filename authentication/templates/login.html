@@ -3,31 +3,20 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicons -->
-    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'global/assets/apple-touch-icon.png' %}">
-    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'global/assets/favicon-32x32.png' %}">
-    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'global/assets/favicon-16x16.png' %}">
-    <link rel="manifest" href="{% static 'global/assets/site.webmanifest' %}">
-    <!-- CSS Styles -->
+    {% include 'model-meta.html' %}
+    <!-- Additional CSS -->
     <link rel="stylesheet" href="{% static 'auth/css/login.css' %}">
-    <link rel="stylesheet" href="{% static 'global/css/global.css' %}">
-    <!-- Bootstrap icons and css -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <!-- JavaScript -->
-    <script src="{% static 'global/js/global.js' %}" defer></script>
     <!-- Title -->
     <title>Login - Agenda Web</title>
 </head>
 
-<body class="bg-light">
-    <main class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+<body>
+    <main class="card shadow-lg p-4">
+        <!-- Botão de Tema -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h4 class="m-0 fw-semibold">Agenda Web</h4>
             <button id="theme-toggle" class="btn btn-outline-secondary btn-sm" title="Alternar tema">
-                <i id="theme-icon" class="bi bi-moon"></i>
+                <i id="theme-icon" class="bi bi-moon-fill"></i>
             </button>
         </div>
 
@@ -60,6 +49,7 @@
                 <button type="submit" class="btn btn-primary">
                     <i class="bi bi-box-arrow-in-right me-2"></i> Entrar
                 </button>
+                <p class="text-center mt-1">Não tem conta? <a class="" href="{% url 'signup' %}">Crie uma agora</a></p>
             </div>
         </form>
     </main>

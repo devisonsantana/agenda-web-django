@@ -1,30 +1,23 @@
-/* === FUNDO GLOBAL COM GRADIENTE === */
-body.bg-light {
-    background: linear-gradient(135deg, #4b6cb7, #182848);
-    min-height: 100vh;
+/* === CENTRALIZA O CARD DE LOGIN === */
+body {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: "Inter", sans-serif;
-    transition: background-color 0.4s ease;
-}
-
-body.dark-mode {
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #e6e6e6;
 }
 
 /* === CONTEÚDO PRINCIPAL === */
 main.card {
+    width: 100%;
+    max-width: 450px;
     backdrop-filter: blur(12px);
-    background-color: rgba(255, 255, 255, 0.85);
+    background-color: var(--bg-card-light);
     border-radius: 16px;
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 body.dark-mode main.card {
-    background-color: rgba(40, 40, 40, 0.85);
-    color: #f5f5f5;
+    background-color: var(--bg-card-dark);
+    color: var(--text-color-dark);
 }
 
 /* === FORMULARIO E BOTÕES === */
@@ -41,7 +34,7 @@ body.dark-mode main.card {
 
 .btn-primary {
     border-radius: 8px;
-    background: linear-gradient(90deg, #0d6efd, #007bff);
+    background: var(--btn-primary);
     border: none;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -64,23 +57,21 @@ body.dark-mode main.card {
     gap: 8px;
 }
 
-/* === BOTÃO DE TEMA === */
-#theme-toggle {
-    border-radius: 50%;
-    width: 36px;
-    height: 36px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+/* === LINKS E TEXTO === */
+body a {
+    text-decoration: none;
+    color: #0d6efd;
+    transition: color 0.3s;
 }
 
-#theme-toggle:hover {
-    transform: rotate(15deg);
-    background-color: rgba(108, 117, 125, 0.15);
+a:hover {
+    color: #0b5ed7;
 }
 
-/* === TRANSIÇÃO GLOBAL === */
-* {
-    transition: background-color 0.3s, color 0.3s;
+body.dark-mode a {
+    color: #9cc4ff;
+}
+
+body.dark-mode a:hover {
+    color: #b8d4ff;
 }
