@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const storedTheme = localStorage.getItem('theme');
     if (storedTheme === 'dark') {
         body.classList.add('dark-mode');
-        themeIcon.className = 'bi bi-sun';
+        themeIcon.className = 'bi bi-sun-fill';
     }
 
     toggleBtn?.addEventListener('click', () => {
         body.classList.toggle('dark-mode');
         const isDark = body.classList.contains('dark-mode');
-        themeIcon.className = isDark ? 'bi bi-sun' : 'bi bi-moon';
+        themeIcon.className = isDark ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
     });
 });

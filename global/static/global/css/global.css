@@ -1,38 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wdth,wght@0,75..100,100..900;1,75..100,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300..900&display=swap');
 
+/* ===================================
+   VARIÁVEIS GLOBAIS
+=================================== */
 :root {
-    /* Backgrounds */
-    --bg-light-gradient: linear-gradient(0deg, #FFF9D0 0%, #cce0ff 100%);
-    --bg-dark-gradient: linear-gradient(0deg, #13005A 0%, #08070d 100%);
-    --bg-card-light: rgba(255, 255, 255, 0.85);
-    --bg-card-dark: rgba(10, 10, 10, 0.85);
-    --bg-modal-light: #ececec;
-    --bg-modal-dark: #141414;
+    --font-main: 'Roboto', sans-serif;
 
-    /* Text colors */
+    /* Cores de fundo */
+    --bg-light-gradient: linear-gradient(0deg, #FFF9D0 0%, #cce0ff 100%);
+    --bg-dark-gradient: linear-gradient(0deg, #050507 0%, #040b13 100%);
+    --bg-card-light: rgba(255, 255, 255, 0.85);
+    --bg-card-dark: rgba(15, 15, 15, 0.85);
+    --bg-modal-light: rgba(255, 255, 255, 0.7);
+    --bg-modal-dark: rgba(15, 15, 15, 0.7);
+
+    /* Cores de texto */
     --text-color-light: #0f0f0f;
     --text-color-dark: #f5f5f5;
-    
-    /* Buttons */
+
+    /* Botões */
     --btn-primary: linear-gradient(90deg, #0d6efd, #007bff);
+    --btn-text-light: #ffffff;
+    --btn-text-dark: #e0e0e0;
+
+    /* Transições */
+    --transition-speed: 0.4s;
+    --transition-ease: ease-in-out;
 }
 
 body {
-    position: relative;
     min-height: 100vh;
+    font-family: var(--font-main);
+    position: relative;
     overflow-x: hidden;
     color: var(--text-color-light);
-    transition: color 0.5s ease;
+    transition: color var(--transition-speed) var(--transition-ease),
+        background-color var(--transition-speed) var(--transition-ease);
 }
 
-/* === CAMADA DE FUNDO - CLARO === */
+/* ===================================
+   CAMADA DE FUNDO (GRADIENTES)
+=================================== */
 body::before,
 body::after {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
-    transition: opacity 0.8s ease;
+    transition: opacity 0.8s var(--transition-ease);
+    will-change: opacity;
 }
 
 body::before {
@@ -45,7 +61,9 @@ body::after {
     opacity: 0;
 }
 
-/* === QUANDO ESTÁ NO MODO ESCURO === */
+/* ===================================
+   MODO ESCURO
+=================================== */
 body.dark-mode {
     color: var(--text-color-dark);
 }
@@ -58,18 +76,27 @@ body.dark-mode::after {
     opacity: 1;
 }
 
-/* === BOTÃO DE TEMA === */
+/* ===================================
+   BOTÃO DE TROCA DE TEMA
+=================================== */
 #theme-toggle {
+    border: none;
+    cursor: pointer;
     border-radius: 50%;
-    width: 36px;
-    height: 36px;
+    width: 40px;
+    height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: all 0.3s ease;
+    transition: transform var(--transition-speed) var(--transition-ease),
+        background-color var(--transition-speed) var(--transition-ease),
+        box-shadow var(--transition-speed) var(--transition-ease);
+    background: transparent;
+    color: inherit;
 }
 
 #theme-toggle:hover {
-    transform: rotate(15deg);
+    transform: rotate(15deg) scale(1.1);
     background-color: rgba(108, 117, 125, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
