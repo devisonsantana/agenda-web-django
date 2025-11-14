@@ -6,73 +6,114 @@
 :root {
     --font-main: 'Roboto', sans-serif;
 
-    /* Cores de fundo */
+    /* Gradientes de fundo */
     --bg-light-gradient: linear-gradient(0deg, #FFF9D0 0%, #cce0ff 100%);
     --bg-dark-gradient: linear-gradient(0deg, #050507 0%, #040b13 100%);
-    --bg-card-light: rgba(255, 255, 255, 0.85);
-    --bg-card-dark: rgba(15, 15, 15, 0.85);
-    --bg-modal-light: rgba(255, 255, 255, 0.7);
-    --bg-modal-dark: rgba(15, 15, 15, 0.7);
 
-    /* Cores de texto */
-    --text-color-light: #0f0f0f;
-    --text-color-dark: #f5f5f5;
+    /* Cards */
+    --card-light: rgba(255, 255, 255, 0.88);
+    --card-dark: rgba(22, 22, 22, 0.88);
+
+    /* Modais */
+    --modal-light: rgba(255, 255, 255, 0.75);
+    --modal-dark: rgba(20, 20, 20, 0.75);
+
+    /* Texto */
+    --text-light: #0f0f0f;
+    --text-dark: #f5f5f5;
 
     /* Botões */
-    --btn-primary: linear-gradient(90deg, #0d6efd, #007bff);
+    --btn-primary-gradient: linear-gradient(90deg, #0d6efd, #007bff);
     --btn-text-light: #ffffff;
     --btn-text-dark: #e0e0e0;
 
     /* Transições */
     --transition-speed: 0.4s;
     --transition-ease: ease-in-out;
+
+    /* Fundo translúcido da navbar */
+    --navbar-bg-light: rgba(255, 255, 255, 0.65);
+    --navbar-bg-dark: rgba(20, 20, 20, 0.55);
+
+    /* Bordas */
+    --navbar-border-light: rgba(0, 0, 0, 0.08);
+    --navbar-border-dark: rgba(255, 255, 255, 0.08);
+
+    /* Textos */
+    --navbar-text-light: #212529;
+    --navbar-text-dark: #f1f1f1;
+
+    /* Ícones hover */
+    --navbar-hover-light: #0d6efd;
+    --navbar-hover-dark: #6ea8fe;
+
+    /* Fundo do offcanvas */
+    --offcanvas-light: rgba(245, 245, 245, 0.85);
+    --offcanvas-dark: rgba(10, 10, 10, 0.85);
 }
 
-body {
-    min-height: 100vh;
+/* ===================================
+   BASE
+=================================== */
+html {
+    min-height: 100%;
     font-family: var(--font-main);
     position: relative;
     overflow-x: hidden;
-    color: var(--text-color-light);
-    transition: color var(--transition-speed) var(--transition-ease),
+    transition:
+        color var(--transition-speed) var(--transition-ease),
         background-color var(--transition-speed) var(--transition-ease);
 }
 
 /* ===================================
-   CAMADA DE FUNDO (GRADIENTES)
+   GRADIENTES DE FUNDO
 =================================== */
-body::before,
-body::after {
+html::before,
+html::after {
     content: "";
     position: fixed;
     inset: 0;
     z-index: -1;
     transition: opacity 0.8s var(--transition-ease);
-    will-change: opacity;
 }
 
-body::before {
+html::before {
     background: var(--bg-light-gradient);
     opacity: 1;
 }
 
-body::after {
+html::after {
     background: var(--bg-dark-gradient);
     opacity: 0;
 }
 
 /* ===================================
-   MODO ESCURO
+   LIGHT MODE
 =================================== */
-body.dark-mode {
-    color: var(--text-color-dark);
+html[data-bs-theme="light"] {
+    color: var(--text-light);
 }
 
-body.dark-mode::before {
+html[data-bs-theme="light"]::before {
+    opacity: 1;
+}
+
+html[data-bs-theme="light"]::after {
     opacity: 0;
 }
 
-body.dark-mode::after {
+/* ===================================
+   DARK MODE
+=================================== */
+html[data-bs-theme="dark"] {
+    color: var(--text-dark);
+}
+
+html[data-bs-theme="dark"]::before {
+    opacity: 0;
+}
+
+html[data-bs-theme="dark"]::after {
     opacity: 1;
 }
 
@@ -88,7 +129,34 @@ body.dark-mode::after {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform var(--transition-speed) var(--transition-ease),
+    background: transparent;
+    color: inherit;
+    transition:
+        transform var(--transition-speed) var(--transition-ease),
+        background-color var(--transition-speed) var(--transition-ease),
+        box-shadow var(--transition-speed) var(--transition-ease);
+}
+
+#theme-toggle:hover {
+    transform: rotate(15deg) scale(1.1);
+    background-color: rgba(108, 117, 125, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ===================================
+   BOTÃO DE TROCA DE TEMA
+=================================== */
+#theme-toggle {
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition:
+        transform var(--transition-speed) var(--transition-ease),
         background-color var(--transition-speed) var(--transition-ease),
         box-shadow var(--transition-speed) var(--transition-ease);
     background: transparent;
@@ -99,4 +167,9 @@ body.dark-mode::after {
     transform: rotate(15deg) scale(1.1);
     background-color: rgba(108, 117, 125, 0.15);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Ícones */
+.bi {
+    transition: color var(--transition-speed) var(--transition-ease);
 }
