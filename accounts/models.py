@@ -9,3 +9,6 @@ class CustomUser(AbstractUser):
         null=True,
         verbose_name='Profile Picture'
     )
+
+    class Meta:
+        db_table = 'user'
