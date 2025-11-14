@@ -1,0 +1,78 @@
+/* ============================================
+   WRAPPER (compensa navbar fixa)
+============================================ */
+.agenda-wrapper {
+    padding-top: 100px;
+}
+
+/* ============================================
+   EVENT CARDS
+============================================ */
+.event-card {
+    background-color: var(--card-light);
+    color: var(--text-light);
+    border-radius: 16px;
+    transition:
+        background-color var(--transition-speed),
+        color var(--transition-speed),
+        box-shadow var(--transition-speed);
+}
+
+html[data-bs-theme="dark"] .event-card {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.5);
+}
+
+/* Título e ícones */
+.event-card .card-title i {
+    color: var(--primary);
+}
+
+/* Notificação */
+.notification-btn {
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background-color 0.25s;
+}
+
+.notification-btn:hover {
+    background-color: rgba(255, 193, 7, 0.15);
+}
+
+/* ============================================
+   BUTTONS
+============================================ */
+.btn-outline-primary,
+.btn-outline-danger,
+.btn-outline-secondary {
+    border-radius: 10px !important;
+}
+
+.btn-outline-primary:hover {
+    color: white;
+}
+
+/* ============================================
+   MODAL GLASS
+============================================ */
+.modal-glass {
+    background: var(--card-light);
+    backdrop-filter: blur(12px);
+    border-radius: 16px;
+    transition: background-color var(--transition-speed);
+}
+
+html[data-bs-theme="dark"] .modal-glass {
+    background-color: var(--card-dark);
+}
+
+/* Modal Titles */
+.modal-content h1 {
+    font-weight: 700;
+}
+
+/* Close button adjusts to theme */
+html[data-bs-theme="dark"] .btn-close {
+    filter: invert(1);
+}

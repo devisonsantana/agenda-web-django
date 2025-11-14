@@ -4,7 +4,7 @@ from django.http import HttpRequest, HttpResponseBadRequest
 from events.models import Event
 from django.contrib import messages
 
-@login_required(login_url='/login')
+@login_required(login_url='login')
 def get_all_events(request: HttpRequest):
     events = Event.objects.filter(user=request.user).order_by('-event_date')
     context = {
@@ -12,7 +12,7 @@ def get_all_events(request: HttpRequest):
     }
     return render(request=request, template_name='agenda.html', context=context)
 
-@login_required(login_url='/login')
+@login_required(login_url='login')
 def add_event(request: HttpRequest):
     if request.POST:
         title = request.POST.get('title').strip()
@@ -33,7 +33,7 @@ def add_event(request: HttpRequest):
         return redirect(to='agenda')
     return render(request=request, template_name='event.html')
 
-@login_required(login_url='/login')
+@login_required(login_url='login')
 def edit_event(request: HttpRequest):
     event_id = request.GET.get('id')
     try:
@@ -69,7 +69,7 @@ def edit_event(request: HttpRequest):
     }
     return render(request=request, template_name='event.html', context=context)
 
-@login_required(login_url='/login')
+@login_required(login_url='login')
 def delete_event(request: HttpRequest, id: int):
     event = get_object_or_404(klass=Event, id=id, user=request.user)
     event.delete()

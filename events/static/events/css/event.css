@@ -1,0 +1,129 @@
+/* ESTILOS DA PAGINA EVENT (NOVO/EDITAR) */
+/* ===================================
+   CONTAINER CENTRALIZADO
+=================================== */
+.event-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px; /* compensar navbar fixa */
+}
+
+/* ===================================
+   CARD DO FORMULÁRIO
+=================================== */
+.card {
+    background-color: var(--card-light);
+    color: var(--text-light);
+    border-radius: 16px;
+    backdrop-filter: blur(8px);
+    transition:
+        background-color var(--transition-speed),
+        color var(--transition-speed),
+        box-shadow var(--transition-speed);
+}
+
+html[data-bs-theme="dark"] .card {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+}
+
+/* Título do card */
+.card h4 {
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* ===================================
+   CAMPOS DO FORMULÁRIO
+=================================== */
+.form-label {
+    font-weight: 600;
+}
+
+.form-control {
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.25);
+    color: inherit;
+    transition:
+        border-color 0.25s,
+        box-shadow 0.25s;
+}
+
+html[data-bs-theme="dark"] .form-control {
+    border-color: rgba(255,255,255,0.25);
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13,110,253,0.25);
+}
+
+/* Campo textarea */
+textarea.form-control {
+    resize: vertical;
+}
+
+/* Texto obrigatório */
+.text-danger {
+    font-weight: 700;
+}
+
+/* Feedback inválido */
+.invalid-feedback {
+    font-size: 0.85rem;
+}
+
+/* ===================================
+   BOTÕES
+=================================== */
+.btn-primary {
+    background: var(--btn-primary-gradient);
+    color: var(--btn-text-light);
+    border-radius: 10px;
+    border: none;
+    padding: 10px;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(13,110,253,0.3);
+}
+
+/* Botão cancelar */
+.btn-outline-secondary {
+    border-radius: 10px;
+    transition: color 0.25s, border-color 0.25s;
+    color: inherit;
+}
+
+html[data-bs-theme="dark"] .btn-outline-secondary {
+    border-color: rgba(200,200,200,0.4);
+}
+
+.btn-outline-secondary:hover {
+    opacity: 0.85;
+}
+
+/* ===================================
+   LINKS (caso apareçam)
+=================================== */
+a {
+    color: var(--navbar-hover-light);
+    text-decoration: none;
+}
+
+html[data-bs-theme="dark"] a {
+    color: var(--navbar-hover-dark);
+}
+
+a:hover {
+    opacity: 0.85;
+}

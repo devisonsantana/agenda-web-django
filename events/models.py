@@ -1,15 +1,13 @@
-from django.contrib.auth.models import User
 from django.utils import timezone
+from django.conf import settings
 from django.db import models
-
-# Create your models here.
 
 class Event(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
     event_date = models.DateTimeField(verbose_name='Event Date')
     created_at = models.DateTimeField(auto_now=True)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def get_event_date(self):
         local_date = timezone.localtime(self.event_date)
