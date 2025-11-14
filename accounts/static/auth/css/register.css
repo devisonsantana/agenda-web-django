@@ -1,0 +1,92 @@
+/* ===================================
+   LAYOUT
+=================================== */
+html, body {
+    height: 100%;
+}
+
+body {
+    font-family: var(--font-main);
+}
+
+/* CARD PRINCIPAL */
+.card {
+    background-color: var(--card-light);
+    color: var(--text-light);
+    transition:
+        background-color var(--transition-speed) var(--transition-ease),
+        color var(--transition-speed) var(--transition-ease);
+}
+
+html[data-bs-theme="dark"] .card {
+    background-color: var(--card-dark);
+    color: var(--text-dark);
+}
+
+/* ===================================
+   FORMULÁRIOS E INPUTS
+=================================== */
+.form-control {
+    border-radius: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(0,0,0,0.25);
+    /* background: transparent; */
+    color: inherit;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+html[data-bs-theme="dark"] .form-control {
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+}
+
+/* Input-group (botões de mostrar senha) */
+.btn-outline-secondary {
+    border-radius: 10px;
+    color: inherit;
+}
+
+.btn-outline-secondary:hover {
+    opacity: 0.8;
+}
+
+/* ===================================
+   BOTÕES PRINCIPAIS
+=================================== */
+.btn-primary {
+    background: var(--btn-primary-gradient);
+    color: var(--btn-text-light);
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+}
+
+/* ===================================
+   LINKS
+=================================== */
+a {
+    text-decoration: none;
+    color: #0d6efd;
+    transition: color 0.25s;
+}
+
+a:hover {
+    color: #0b5ed7;
+}
+
+html[data-bs-theme="dark"] a {
+    color: #9cc4ff;
+}
+
+html[data-bs-theme="dark"] a:hover {
+    color: #b8d4ff;
+}
